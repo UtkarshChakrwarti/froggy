@@ -332,16 +332,16 @@ body{
     z-index: 25;
   }
 
-  @media (max-width: 725px), (max-height: 399px) {
-    /* Styles for resolutions below 600px x 400px */
+  /* @media (max-width: 725px), (max-height: 399px) {
+    
     .container {
       display: none;
     }
     .control {
       display: none;
-    }
+    } 
 }
-
+*/
 .nextnum{
     background: url("nextnum.png");
     background-position: center;
