@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Froggy</title>
+    <link rel="stylesheet" href="froggy.css">
+    <!--make it mobile responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- designig the page-->
+    <div class="container">
+        <div class="banner">
+            <text>Froggy counter</text>
+            <div id="score" class="score">Score: 0</div>
+            <div id="timer" class="timer">Time: 0</div>
+        </div>
+        <div id="bank" class="bank">
+            <div class="source-log" id="source-log">
+                <!-- grid of 10 div side by side atttatched inline and flex-->
+                <div class="source-count">
+
+                    <div id="s1" class="source-div"></div>
+                    <div id="s2" class="source-div"></div>
+                    <div id="s3" class="source-div"></div>
+                    <div id="s4" class="source-div"></div>
+                    <div id="s5" class="source-div"></div>
+                    <div id="s6" class="source-div"></div>
+                    <div id="s7" class="source-div"></div>
+                    <div id="s8" class="source-div"></div>
+                    <div id="s9" class="source-div"></div>
+                    <div id="s10" class="source-div"></div>
+                </div>
+
+            </div>
+            <div id="randomNumber" class="nextnum">0</div>
+        </div>
+        <div id="water">
+            <div id="destination-div">
+                <div class="leaf">
+                    <div class="destination-count">
+
+                        <div id="d1" class="destination-div"></div>
+                        <div id="d2" class="destination-div"></div>
+                        <div id="d3" class="destination-div"></div>
+                        <div id="d4" class="destination-div"></div>
+                        <div id="d5" class="destination-div"></div>
+                        <div id="d6" class="destination-div"></div>
+                        <div id="d7" class="destination-div"></div>
+                        <div id="d8" class="destination-div"></div>
+                        <div id="d9" class="destination-div"></div>
+                        <div id="d10" class="destination-div"></div>
+
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+
+        <img class="bottom" src="left_bot.png" />
+    </div>
+    <div class="control">
+        <!-- reset, check, fullscreen, close and about button -->
+        <div class="btn" id="reset">
+            <img src="reset.png" />
+        </div>
+        <div class="btn" id="check">
+            <img src="check.png" />
+        </div>
+
+    </div>
+    <!-- <div class="extra" style=" z-index: 45;background-color:red;position: absolute;color: aliceblue;">
+        <div id="jumpCount">Jump Count: 0</div> -->
+       
+    </div>
+
+    </div>
+    <div class="fallback">
+
+        <h1>Sorry, your browser does not support canvas.</h1>
+
+
+
+    </div>
+    <script src="froggy.js"></script>
+</body>
+
+</html>
