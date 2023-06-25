@@ -333,7 +333,7 @@ body{
   }
 /*
   @media (max-width: 525px), (max-height: 399px) {
-    /* Styles for resolutions below 600px x 400px */
+    
     .container {
       display: none;
     }
