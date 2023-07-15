@@ -1,0 +1,487 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* loading screen frog image with loading animation around frog*/
+/* Loader Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /* Change the background color as needed */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* gamified gradient background using most used color in colorful splash screens of games*/
+    background: linear-gradient(135deg, #FF4F00, #EEFF00, #00FF66, #0066FF, #FF00DD);
+
+    background-size: 800% 800%;
+    background-position: center;
+    animation: gradientAnimation 10s ease infinite;
+
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.loader-image {
+    max-width: 200px;
+    /* Adjust the image size as needed */
+    max-height: 200px;
+    position: relative;
+    animation: breathing 1s ease-out infinite normal;
+
+}
+
+@keyframes breathing {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+
+}
+
+/* loading text wit pick font from local ttf file*/
+@font-face {
+    font-family: 'Frog';
+    src: url('../font/Frog.ttf') format('truetype');
+    font-weight: normal;
+
+
+}
+
+.loader-text {
+    position: absolute;
+    top: 50px;
+    font-family: 'Frog';
+    font-size: 4rem;
+    color: #ff0066;
+    letter-spacing: 0.2rem;
+    border-radius: 15px;
+    border: 10px dotted #ff0066;
+    background-color: black;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+
+/* slide loader-wrapper down when class loaded is added to .loader-wrapper  */
+.loader-wrapper.loaded {
+    animation: slideDown 1s ease-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+
+
+}
+
+/* main game screen */
+.main-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../images/background.jpg);
+    /* Replace with your image URL */
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+/* frog buttons */
+.frog-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom, #ff4081, #ff0066);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+    transition: all 0.3s ease;
+}
+
+.frog-button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+.frog-button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+.frog-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+/* frog rulebook */
+#frog-loc{
+    display: none;
+}
+.frog-rulebook {
+
+    font-family: 'Frog';
+    position: relative;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 5px solid #ff0066;
+    
+}
+
+.frog-rulebook h1 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: #ff0066;
+    letter-spacing: 0.2rem;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.frog-rulebook img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+}
+
+/*game screen*/
+.game-screen {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../images/background.jpg);
+    /* Replace with your image URL */
+    background-position: center;
+    background-size: cover;
+}
+
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    color: #ff0066;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Frog';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    border-bottom: 5px solid #ff0066;
+
+}
+
+#header button {
+    position: absolute;
+    background: none;
+    width: 50px;
+    height: 50px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+    transition: all 0.3s ease;
+
+}
+
+#fullscreen {
+    left: 20px;
+}
+
+#replay {
+    right: 20px;
+}
+
+#header button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+#header button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+#header button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+#header button img {
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+#footer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #ffffff;
+    color: #ff0066;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: 'Frog';
+    display: flex;
+   
+    z-index: 999;
+    border-top: 5px solid #ff0066;
+}
+
+#footer button {
+    position: relative;
+    background-color: #ff0055;;
+    width: 100px;
+    height: 50px;
+    border: none;
+    padding: 0;
+    margin: 0px;
+    cursor: pointer;
+    outline: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+    transition: all 0.3s ease;
+
+}
+
+#footer button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+#footer button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+#footer button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+#footer button img {
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+#check-button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+.game-over {
+
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    animation: popup 1s ease-out forwards;
+    display: none;
+    z-index: 99999;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(0.9);
+        top: 100px;
+    }
+
+    50% {
+        transform: scale(1);
+        top: 100px;
+    }
+
+    100% {
+        transform: scale(0.9);
+        top: 100px;
+    }
+}
+
+/*platform css*/
+.platform-1 {
+
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 280px;
+    background-image: url(../images/platform1.png);
+    background-repeat: no-repeat;
+    background-size: 120% 110%;
+    background-color: #ffffffaf;
+    border:10px dashed #ff0066;
+    border-radius: 10%;
+
+}
+
+.platform-2 {
+    position: absolute;
+    right: 20px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 280px;
+    border:10px dashed #ff6f00;
+    border-radius: 10%;
+    background-color: #ffffffaf;
+}
+
+.line {
+    display: flex;
+}
+
+.source-div {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: -15px;
+    background-image: url(../images/1.png);
+
+}
+
+.destination-div {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+
+.destination-div img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    filter: drop-shadow(0px 0px 5px rgb(57, 112, 57));
+
+     
+}
+.source-div img {
+    position: absolute;
+    width:100px;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+    filter: drop-shadow(0px 0px 5px rgb(57, 112, 57));
+
+     
+}
+/* now game engine */
+.path-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    z-index: 10;
+  }
+  .frog {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    z-index: 25;
+  }

@@ -1,93 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Froggy</title>
-    <link rel="stylesheet" href="froggy.css">
-    <!--make it mobile responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    </style>
-</head>
+    <meta charset="UTF-8">
+    <title>Frog Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/app.css" rel="stylesheet">
+
 
 <body>
+    <!-- splash screen frog image with loading animation around frog -->
+    <div class="loader-wrapper">
+        <div class="loader-text">&nbsp;Froggy&nbsp;</div>
+        <img src="images/loader.png" alt="Loader Image" class="loader-image">
+    </div>
+    <!-- end of splash screen -->
 
-    <!-- designig the page-->
-    <div class="container">
-        <div class="banner">
-            <text>Froggy counter</text>
-            <div id="score" class="score">Score: 0</div>
-            <div id="timer" class="timer">Time: 0</div>
+    <!-- main frog counter screen -->
+    <div class="main-container" id="main-frog">
+        <div class="frog-rulebook ">
+            <img src="images/jump.gif" alt="Frog Image" class="frog-image">
+            <h1>Froggy : The Counterer</h1>
+            <p>Click on the frog to make it jump to the otherside.
+                You have 120 seconds to make as many correct frogs jump as possible.
+                <br> Each correct jump is worth 5 points. Each incorrect jump is worth -2 points. Good luck!
+            </p>
+
+            <button class="frog-button" id="play">Play Now</button>
         </div>
-        <div id="bank" class="bank">
-            <div class="source-log" id="source-log">
-                <!-- grid of 10 div side by side atttatched inline and flex-->
-                <div class="source-count">
+    </div>
+    <!-- end of main frog counter screen -->
 
-                    <div id="s1" class="source-div"></div>
-                    <div id="s2" class="source-div"></div>
-                    <div id="s3" class="source-div"></div>
-                    <div id="s4" class="source-div"></div>
-                    <div id="s5" class="source-div"></div>
-                    <div id="s6" class="source-div"></div>
-                    <div id="s7" class="source-div"></div>
-                    <div id="s8" class="source-div"></div>
-                    <div id="s9" class="source-div"></div>
-                    <div id="s10" class="source-div"></div>
-                </div>
+    <!-- frog counter game screen -->
+    <div class="game-screen" id="game-screen">
+        <div id="header">
+            <button id="fullscreen">
+                <img src="images/fullscreen.png" alt="Fullscreen Image">
+            </button>
+            Froggy
+            <button id="replay">
+                <img src="images/replay.png" alt="About Image">
+            </button>
+        </div>
 
+        <div id="footer">
+            <div id="score">
+                Score: <span id="score-value">0</span>
             </div>
-            <div id="randomNumber" class="nextnum">0</div>
-        </div>
-        <div id="water">
-            <div id="destination-div">
-                <div class="leaf">
-                    <div class="destination-count">
-
-                        <div id="d1" class="destination-div"></div>
-                        <div id="d2" class="destination-div"></div>
-                        <div id="d3" class="destination-div"></div>
-                        <div id="d4" class="destination-div"></div>
-                        <div id="d5" class="destination-div"></div>
-                        <div id="d6" class="destination-div"></div>
-                        <div id="d7" class="destination-div"></div>
-                        <div id="d8" class="destination-div"></div>
-                        <div id="d9" class="destination-div"></div>
-                        <div id="d10" class="destination-div"></div>
-
-                    </div>
-                </div>
-                
-
+            <div id="check">
+                <button id="check-button">
+                    <img src="images/check.png" alt="Fullscreen Image">
+                </button>
+            </div>
+            <div id="timer">
+                Time: <span id="timer-value">120</span>
             </div>
         </div>
-
-        <img class="bottom" src="left_bot.png" />
     </div>
-    <div class="control">
-        <!-- reset, check, fullscreen, close and about button -->
-        <div class="btn" id="reset">
-            <img src="reset.png" />
+    <!-- end of frog counter game screen -->
+
+
+
+
+    <!-- frog counter game over screen -->
+    <div class="game-over" id="game-over">
+        <div class="frog-rulebook ">
+            <img src="images/jump.gif" alt="Frog Image" class="frog-image">
+            <h1>Froggy : The Counterer</h1>
+            <p>Click on the frog to make it jump to the otherside.
+                You have 120 seconds to make as many correct frogs jump as possible.
+                <br> Each correct jump is worth 5 points. Each incorrect jump is worth -2 points. Good luck!
+            </p>
+
+            <button class="frog-button" id="play-again">Play Again</button>
         </div>
-        <div class="btn" id="check">
-            <img src="check.png" />
+    </div>
+
+
+    <!-- end of frog counter game over screen -->
+
+
+    <!--platform codes-->
+    <div id="frog-loc">
+        <div class="platform-1">
+            <div class="line">
+                <div class="source-div" id="s1"></div>
+                <div class="source-div" id="s2"></div>
+                <div class="source-div" id="s3"></div>
+            </div>
+            <div class="line">
+                <div class="source-div" id="s4"></div>
+                <div class="source-div" id="s5"></div>
+                <div class="source-div" id="s6"></div>
+                <div class="source-div" id="s7"></div>
+            </div>
+            <div class="line">
+                <div class="source-div" id="s8"></div>
+                <div class="source-div" id="s9"></div>
+                <div class="source-div" id="s10"></div>
+            </div>
         </div>
 
+        <div class="platform-2">
+            <div class="line">
+                <div class="destination-div" id="d1"></div>
+                <div class="destination-div" id="d2"></div>
+                <div class="destination-div" id="d3"></div>
+            </div>
+            <div class="line">
+                <div class="destination-div" id="d4"></div>
+                <div class="destination-div" id="d5"></div>
+                <div class="destination-div" id="d6"></div>
+                <div class="destination-div" id="d7"></div>
+            </div>
+            <div class="line">
+                <div class="destination-div" id="d8"></div>
+                <div class="destination-div" id="d9"></div>
+                <div class="destination-div" id="d10"></div>
+            </div>
+        </div>
     </div>
-    <!-- <div class="extra" style=" z-index: 45;background-color:red;position: absolute;color: aliceblue;">
-        <div id="jumpCount">Jump Count: 0</div> -->
-       
-    </div>
 
-    </div>
-    <div class="fallback">
 
-        <h1>Sorry, your browser does not support canvas.</h1>
+    <!--end of platform codes-->
 
 
 
-    </div>
-    <script src="froggy.js"></script>
+
+
+
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>
