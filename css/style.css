@@ -1,0 +1,443 @@
+@font-face {
+    font-family: 'Frog';
+    src: url('../font/Frog.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #ff0066;
+    text-align: center;
+    font-size: 10px;
+    font-family: 'Frog';
+    color: white;
+    overflow: hidden;
+    outline: none;
+    user-select: none;
+
+}
+
+
+.container {
+    position: absolute;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.banner {
+    color: #ff0066;
+    font-size: x-large;
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    height: 50px;
+    top: 5px;
+    background: url("../img/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+    z-index: 5;
+
+}
+
+.timer,
+.score {
+    filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
+}
+
+.title {
+    color: white;
+    font-size: 30px;
+    filter: drop-shadow(0px 0px 10px #ff0066);
+}
+
+.back {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60vh;
+    background: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(0px 0px 5px black);
+
+}
+
+/* place for log */
+
+.next-num {
+    position: absolute;
+    top: 14vh;
+    right: 5px;
+    width: 110px;
+    height: 110px;
+    background: url("../img/next-num.png");
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: 'frog';
+    color: rgb(253, 0, 148);
+    font-size: 55px;
+    font-family: 'roboto', sans-serif;
+    text-align: center;
+    text-shadow: 0px 0px 5px white;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 0px 5px rgb(250, 1, 113));
+    /*make inside text vertically as well horizontly at  center*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /*make the text inside the div to be in center*/
+}
+
+
+.option-bar {
+    position: absolute;
+    bottom: 3px;
+    left: 0px;
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 3px;
+}
+
+.option-bar button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to bottom, #ff4081, #ff0066);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.option-bar button img {
+    width: 45px;
+    height: 45px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+}
+
+.option-bar button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+.option-bar button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+.option-bar button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+.water {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 40vh;
+    background: url("../img/water.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* place for petal */
+
+
+.rulebook {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 100px;
+    bottom: 100px;
+    margin: auto;
+    font-family: 'Frog';
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 5px solid #ff0066;
+    z-index: 101;
+
+}
+
+.rulebook h1 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: #ff0066;
+    letter-spacing: 0.2rem;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.frog-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px;
+}
+
+.rulebook ul {
+    /*make item align with left*/
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0px;
+    font-weight: lighter;
+    color: #000000;
+    letter-spacing: 0.2rem;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+}
+
+.rulebook button {
+    /*close button*/
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 100px;
+    right: 100px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ff0066;
+    border-radius: 50%;
+
+}
+
+.rulebook button img {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 50%;
+}
+
+.rulebook button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+.rulebook button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+.rulebook button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+#rulebook {
+    display: none;
+}
+
+
+
+
+
+/* experimental */
+
+.log {
+    position: absolute;
+    bottom: -20px;
+    left: -25px;
+    width: 420px;
+    height: 200px;
+    background: url("../img/log.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+
+    display: flex;
+
+    align-items: center;
+    flex-direction: row;
+}
+
+.source-div {
+    position: relative;
+    left: 50px;
+    bottom: -15px;
+    width: 100px;
+    height: 100px;
+    margin-top: -30px;
+    margin-bottom: -35px;
+    margin-left: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(../img/1.png);
+    background-position: center;
+    background-size: 100px 100px;
+}
+
+.petal {
+    position: absolute;
+    bottom: 0px;
+    right: -25px;
+    width: 450px;
+    height: 35vh;
+    background: url("../img/petal.png");
+    background-repeat: no-repeat;
+    background-size: fill;
+    background-position: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.destination-div {
+    position: relative;
+    top: -30px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    margin-top: -30px;
+    margin-bottom: -35px;
+    margin-left: -25px;
+
+}
+
+
+/*game engine*/
+.path-point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+
+}
+
+.frog {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+}
+
+.gameover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    color: #ff0066;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid #ff0066;
+    border-radius: 10px;
+    z-index: 101;
+}
+
+.gameover button img {
+    width: 75px;
+    height: 75px;
+}
+
+.gameover button {
+    /*close button*/
+    position: relative;
+    align-items: center;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ff0066;
+    border-radius: 50%;
+
+
+}
+
+.gameover button:hover {
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5);
+}
+
+.gameover button:focus {
+    outline: none;
+    background-image: linear-gradient(to bottom, #ff0066, #ff4081);
+    box-shadow: 0 4px 8px rgba(255, 0, 102, 0.5), 0 0 0 4px rgba(255, 0, 102, 0.2);
+}
+
+.gameover button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(255, 0, 102, 0.5);
+}
+
+#gameover {
+    display: none;
+}
+
+.disabler {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
