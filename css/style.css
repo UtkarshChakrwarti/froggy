@@ -11,7 +11,7 @@ body {
     font-size: 10px;
     font-family: 'Frog';
     color: white;
-    overflow: hidden;
+    overflow: auto;
     outline: none;
     user-select: none;
 
